@@ -117,7 +117,3 @@ def url_resolve(slug):
     except:
         # TODO: solve multiple redirection issues
         abort(404)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
