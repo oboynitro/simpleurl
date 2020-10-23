@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block content %}
+<form action="/" method="POST">
+  {% if error %}
+  <div class="error">
+    <h4>{{ error }}</h4>
+  </div>
+  {% endif %}
+
+  <div>
+    <label for="url">Url here (eg. http://google.com)</label><br />
+    <input
+      type="text"
+      name="url"
+      id="url"
+      placeholder="http://www.google.com"
+    />
+  </div>
+  <div>
+    <label for="url">Slug / Alias here (eg. gg)</label><br />
+    <input type="text" name="slug" id="slug" placeholder="gg" />
+  </div>
+  <div>
+    <button type="submit" class="submitBtn">Shrink</button>
+  </div>
+</form>
+
+{% if data %}
+<div class="created_link_box">
+  <h3 style="color: green">Link Created</h3>
+  <div class="created-link">
+    <table>
+      <tr>
+        <td class="head">ID:</td>
+        <td><span>{{ data["id"] }}</span></td>
+      </tr>
+      <tr>
+        <td class="head">SLUG / ALIAS:</td>
+        <td><span>{{ data["slug"] }}</span></td>
+      </tr>
+      <tr>
+        <td class="head">URL:</td>
+        <td><span>{{ data["url"] }}</span></td>
+      </tr>
+      <tr>
+        <td class="head">Access</td>
+        <td>
+          <span
+            >{{ request.url_root }}{{ data["slug"] }} |
+            <a href="{{ data["url"] }}" target="_blank" class="visitLinkBtn"
+              >Visit Link</a
+            ></span
+          >
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+{% endif %} {% endblock content %}

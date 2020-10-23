@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %} These are all your links 😅.
+<span style="color: coral">Total : {{ links }}</span> {% endblock title %} {%
+block content %}
+<div id="links-box">
+  {% for link in urls %}
+  <div class="card">
+    <div class="header">
+      <h5>{{ request.url_root }}{{ link.slug }}</h5>
+      <a href="{{ link.url }}" target="_blank" class="visitLinkBtn"
+        >Visit Link</a
+      >
+    </div>
+    <div class="body">
+      <table>
+        <tr>
+          <td class="head">ID:</td>
+          <td><span>{{ link.id }}</span></td>
+        </tr>
+        <tr>
+          <td class="head">SLUG / ALIAS:</td>
+          <td><span>{{ link.slug }}</span></td>
+        </tr>
+        <tr>
+          <td class="head">URL:</td>
+          <td><span>{{ link.url }}</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

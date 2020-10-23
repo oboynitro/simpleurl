@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Url - A url shortener</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <section id="header">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <span>|</span>
+          <li><a href="/links">Links</a></li>
+        </ul>
+      </section>
+      <h2>
+        {% block title %} Welcome to simple url shortener {% endblock title %}
+      </h2>
+      <main>{% block content %} {% endblock content %}</main>
+
+      <section id="footer"></section>
+    </div>
+  </body>
+</html>
